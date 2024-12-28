@@ -51,6 +51,7 @@ import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
 
+/// nofox
 String _stringFromIp(Uint8List bytes) {
   switch (bytes.length) {
     case 4:
@@ -62,6 +63,7 @@ String _stringFromIp(Uint8List bytes) {
   }
 }
 
+/// nofox
 String _stringFromIp6(Uint8List bytes) {
   // ---------------------------
   // Find longest span of zeroes
