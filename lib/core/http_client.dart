@@ -132,7 +132,10 @@ import 'package:io_universe/io_universe.dart';
 ///     HttpClient client = HttpClient();
 ///     client.findProxy = null;
 abstract class HttpClient implements dart_io.HttpClient {
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   static const int defaultHttpPort = 80;
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   static const int defaultHttpsPort = 443;
 
   /// Current state of HTTP request logging from all [HttpClient]s to the
@@ -141,6 +144,7 @@ abstract class HttpClient implements dart_io.HttpClient {
   /// Default is `false`.
   static bool enableTimelineLogging = false;
 
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   factory HttpClient({SecurityContext? context}) {
     var overrides = HttpOverrides.current;
     if (overrides == null) {
@@ -198,8 +202,7 @@ abstract class HttpClient implements dart_io.HttpClient {
   /// [:username:password@hostname:port:] to include the username and
   /// password. Alternatively the API [addProxyCredentials] can be used
   /// to set credentials for proxies which require authentication.
-  static String findProxyFromEnvironment(Uri url,
-      {Map<String, String>? environment}) {
+  static String findProxyFromEnvironment(Uri url, {Map<String, String>? environment}) {
     return 'DIRECT';
   }
 }

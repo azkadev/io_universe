@@ -46,10 +46,13 @@ import '_exports_in_browser.dart';
 
 final _digitsValidator = RegExp(r"^\d+$");
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class HttpHeadersImpl implements HttpHeaders {
   final Map<String, List<String>> _headers;
   // The original header names keyed by the lowercase header names.
   Map<String, String>? _originalHeaderNames;
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final String protocolVersion;
 
   bool _mutable = true; // Are the headers currently mutable?
@@ -63,9 +66,8 @@ class HttpHeadersImpl implements HttpHeaders {
 
   final int _defaultPortForScheme;
 
-  HttpHeadersImpl(this.protocolVersion,
-      {int defaultPortForScheme = HttpClient.defaultHttpPort,
-      HttpHeadersImpl? initialHeaders})
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  HttpHeadersImpl(this.protocolVersion, {int defaultPortForScheme = HttpClient.defaultHttpPort, HttpHeadersImpl? initialHeaders})
       : _headers = HashMap<String, List<String>>(),
         _defaultPortForScheme = defaultPortForScheme {
     if (initialHeaders != null) {
@@ -89,8 +91,7 @@ class HttpHeadersImpl implements HttpHeaders {
   set chunkedTransferEncoding(bool chunkedTransferEncoding) {
     _checkMutable();
     if (chunkedTransferEncoding && protocolVersion == "1.0") {
-      throw HttpException(
-          "Trying to set 'Transfer-Encoding: Chunked' on HTTP 1.0 headers");
+      throw HttpException("Trying to set 'Transfer-Encoding: Chunked' on HTTP 1.0 headers");
     }
     if (chunkedTransferEncoding == _chunkedTransferEncoding) return;
     if (chunkedTransferEncoding) {
@@ -113,11 +114,8 @@ class HttpHeadersImpl implements HttpHeaders {
   @override
   set contentLength(int contentLength) {
     _checkMutable();
-    if (protocolVersion == "1.0" &&
-        persistentConnection &&
-        contentLength == -1) {
-      throw HttpException(
-          "Trying to clear ContentLength on HTTP 1.0 headers with "
+    if (protocolVersion == "1.0" && persistentConnection && contentLength == -1) {
+      throw HttpException("Trying to clear ContentLength on HTTP 1.0 headers with "
           "'Connection: Keep-Alive' set");
     }
     if (_contentLength == contentLength) return;
@@ -254,8 +252,7 @@ class HttpHeadersImpl implements HttpHeaders {
         remove(HttpHeaders.connectionHeader, "close");
       } else {
         if (_contentLength < 0) {
-          throw HttpException(
-              "Trying to set 'Connection: Keep-Alive' on HTTP 1.0 headers with "
+          throw HttpException("Trying to set 'Connection: Keep-Alive' on HTTP 1.0 headers with "
               "no ContentLength");
         }
         add(originalName, "keep-alive", preserveHeaderCase: true);
@@ -296,15 +293,14 @@ class HttpHeadersImpl implements HttpHeaders {
     _addAll(lowercaseName, value);
   }
 
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   void build(BytesBuilder builder, {bool skipZeroContentLength = false}) {
     // per https://tools.ietf.org/html/rfc7230#section-3.3.2
     // A user agent SHOULD NOT send a
     // Content-Length header field when the request message does not
     // contain a payload body and the method semantics do not anticipate
     // such a body.
-    String? ignoreHeader = _contentLength == 0 && skipZeroContentLength
-        ? HttpHeaders.contentLengthHeader
-        : null;
+    String? ignoreHeader = _contentLength == 0 && skipZeroContentLength ? HttpHeaders.contentLengthHeader : null;
     _headers.forEach((String name, List<String> values) {
       if (ignoreHeader == name) {
         return;
@@ -346,6 +342,7 @@ class HttpHeadersImpl implements HttpHeaders {
     _port = null;
   }
 
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   void finalize() {
     _mutable = false;
   }

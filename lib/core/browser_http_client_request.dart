@@ -13,6 +13,7 @@
 
 import 'package:io_universe/io_universe.dart';
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 mixin BrowserHttpClientRequest on HttpClientRequest {
   /// Sets _responseType_ in XMLHttpRequest for this _XHR_ request.
   ///

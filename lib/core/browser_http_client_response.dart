@@ -15,5 +15,6 @@ import 'package:io_universe/io_universe.dart';
 
 /// Implemented by [HttpClientResponse] when the application runs in browser.
 mixin BrowserHttpClientResponse on HttpClientResponse {
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   dynamic get browserResponse;
 }

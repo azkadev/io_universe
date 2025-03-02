@@ -53,6 +53,7 @@ class BrowserHttpClientException implements SocketException {
   @override
   final int? port = null;
 
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   BrowserHttpClientException({
     required this.method,
     required this.url,

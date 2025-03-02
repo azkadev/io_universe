@@ -11,28 +11,35 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'dart:html' as html;
+// import 'dart:html' as html;
+//
 
+// import 'dart:js_interop';
+
+import 'dart:js_interop';
+
+import "package:web/web.dart" as web;
 import 'package:io_universe/io_universe.dart';
 
 import '_browser_http_client_impl.dart';
 
-String? get htmlWindowOrigin => html.window.origin;
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+String? get htmlWindowOrigin => web.window.origin;
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 String get locale {
-  final languages = html.window.navigator.languages;
-  if (languages != null && languages.isNotEmpty) {
-    return languages.first;
+  final List<JSString> languages = web.window.navigator.languages.toDart;
+  if (languages.isNotEmpty) {
+    return languages.first.toDart;
   }
+
   return 'en-US';
 }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 String get operatingSystem {
-  final s = html.window.navigator.userAgent.toLowerCase();
-  if (s.contains('iphone') ||
-      s.contains('ipad') ||
-      s.contains('ipod') ||
-      s.contains('watch os')) {
+  final s = web.window.navigator.userAgent.toLowerCase();
+  if (s.contains('iphone') || s.contains('ipad') || s.contains('ipod') || s.contains('watch os')) {
     return 'ios';
   }
   if (s.contains('mac os')) {
@@ -53,8 +60,9 @@ String get operatingSystem {
   return '';
 }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 String get operatingSystemVersion {
-  final userAgent = html.window.navigator.userAgent;
+  final userAgent = web.window.navigator.userAgent;
 
   // Android?
   {
@@ -109,4 +117,5 @@ String get operatingSystemVersion {
   return '';
 }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 HttpClient newHttpClient() => BrowserHttpClientImpl();

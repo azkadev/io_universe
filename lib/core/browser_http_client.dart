@@ -28,8 +28,7 @@ abstract class BrowserHttpClient implements HttpClient {
 
   /// Enables you to set [BrowserHttpClientRequest.browserRequestType] before
   /// any _XHR_ request is sent to the server.
-  FutureOr<void> Function(BrowserHttpClientRequest request)?
-      onBrowserHttpClientRequestClose;
+  FutureOr<void> Function(BrowserHttpClientRequest request)? onBrowserHttpClientRequestClose;
 
   /// Enables [CORS "credentials mode"](https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials)
   /// for all _XHR_ requests. Disabled by default.
@@ -50,5 +49,6 @@ abstract class BrowserHttpClient implements HttpClient {
   ///  ```
   bool browserCredentialsMode = false;
 
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   BrowserHttpClient.constructor();
 }
