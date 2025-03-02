@@ -39,7 +39,10 @@ String get locale {
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 String get operatingSystem {
   final s = web.window.navigator.userAgent.toLowerCase();
-  if (s.contains('iphone') || s.contains('ipad') || s.contains('ipod') || s.contains('watch os')) {
+  if (s.contains('iphone') ||
+      s.contains('ipad') ||
+      s.contains('ipod') ||
+      s.contains('watch os')) {
     return 'ios';
   }
   if (s.contains('mac os')) {

@@ -67,7 +67,9 @@ class HttpHeadersImpl implements HttpHeaders {
   final int _defaultPortForScheme;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  HttpHeadersImpl(this.protocolVersion, {int defaultPortForScheme = HttpClient.defaultHttpPort, HttpHeadersImpl? initialHeaders})
+  HttpHeadersImpl(this.protocolVersion,
+      {int defaultPortForScheme = HttpClient.defaultHttpPort,
+      HttpHeadersImpl? initialHeaders})
       : _headers = HashMap<String, List<String>>(),
         _defaultPortForScheme = defaultPortForScheme {
     if (initialHeaders != null) {
@@ -91,7 +93,8 @@ class HttpHeadersImpl implements HttpHeaders {
   set chunkedTransferEncoding(bool chunkedTransferEncoding) {
     _checkMutable();
     if (chunkedTransferEncoding && protocolVersion == "1.0") {
-      throw HttpException("Trying to set 'Transfer-Encoding: Chunked' on HTTP 1.0 headers");
+      throw HttpException(
+          "Trying to set 'Transfer-Encoding: Chunked' on HTTP 1.0 headers");
     }
     if (chunkedTransferEncoding == _chunkedTransferEncoding) return;
     if (chunkedTransferEncoding) {
@@ -114,8 +117,11 @@ class HttpHeadersImpl implements HttpHeaders {
   @override
   set contentLength(int contentLength) {
     _checkMutable();
-    if (protocolVersion == "1.0" && persistentConnection && contentLength == -1) {
-      throw HttpException("Trying to clear ContentLength on HTTP 1.0 headers with "
+    if (protocolVersion == "1.0" &&
+        persistentConnection &&
+        contentLength == -1) {
+      throw HttpException(
+          "Trying to clear ContentLength on HTTP 1.0 headers with "
           "'Connection: Keep-Alive' set");
     }
     if (_contentLength == contentLength) return;
@@ -252,7 +258,8 @@ class HttpHeadersImpl implements HttpHeaders {
         remove(HttpHeaders.connectionHeader, "close");
       } else {
         if (_contentLength < 0) {
-          throw HttpException("Trying to set 'Connection: Keep-Alive' on HTTP 1.0 headers with "
+          throw HttpException(
+              "Trying to set 'Connection: Keep-Alive' on HTTP 1.0 headers with "
               "no ContentLength");
         }
         add(originalName, "keep-alive", preserveHeaderCase: true);
@@ -300,7 +307,9 @@ class HttpHeadersImpl implements HttpHeaders {
     // Content-Length header field when the request message does not
     // contain a payload body and the method semantics do not anticipate
     // such a body.
-    String? ignoreHeader = _contentLength == 0 && skipZeroContentLength ? HttpHeaders.contentLengthHeader : null;
+    String? ignoreHeader = _contentLength == 0 && skipZeroContentLength
+        ? HttpHeaders.contentLengthHeader
+        : null;
     _headers.forEach((String name, List<String> values) {
       if (ignoreHeader == name) {
         return;

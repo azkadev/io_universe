@@ -19,7 +19,8 @@ import '_exports_in_browser.dart';
 import '_http_headers_impl.dart';
 
 /// Used by [_BrowserHttpClient].
-class BrowserHttpClientResponseImpl extends Stream<List<int>> implements BrowserHttpClientResponse {
+class BrowserHttpClientResponseImpl extends Stream<List<int>>
+    implements BrowserHttpClientResponse {
   @override
   final HttpHeaders headers = HttpHeadersImpl('1.1');
 
@@ -78,7 +79,11 @@ class BrowserHttpClientResponseImpl extends Stream<List<int>> implements Browser
   @override
   bool get isRedirect {
     if (request.method == 'GET' || request.method == 'HEAD') {
-      return statusCode == HttpStatus.movedPermanently || statusCode == HttpStatus.permanentRedirect || statusCode == HttpStatus.found || statusCode == HttpStatus.seeOther || statusCode == HttpStatus.temporaryRedirect;
+      return statusCode == HttpStatus.movedPermanently ||
+          statusCode == HttpStatus.permanentRedirect ||
+          statusCode == HttpStatus.found ||
+          statusCode == HttpStatus.seeOther ||
+          statusCode == HttpStatus.temporaryRedirect;
     } else if (request.method == 'POST') {
       return statusCode == HttpStatus.seeOther;
     }
@@ -97,7 +102,8 @@ class BrowserHttpClientResponseImpl extends Stream<List<int>> implements Browser
   }
 
   @override
-  StreamSubscription<Uint8List> listen(void Function(Uint8List event)? onData, {Function? onError, void Function()? onDone, bool? cancelOnError}) {
+  StreamSubscription<Uint8List> listen(void Function(Uint8List event)? onData,
+      {Function? onError, void Function()? onDone, bool? cancelOnError}) {
     return _body.listen(
       onData,
       onError: onError,
@@ -107,9 +113,12 @@ class BrowserHttpClientResponseImpl extends Stream<List<int>> implements Browser
   }
 
   @override
-  Future<HttpClientResponse> redirect([String? method, Uri? url, bool? followLoops]) {
+  Future<HttpClientResponse> redirect(
+      [String? method, Uri? url, bool? followLoops]) {
     final newUrl = url ?? Uri.parse(headers.value(HttpHeaders.locationHeader)!);
-    return request.client.openUrl(method ?? request.method, newUrl).then((newRequest) {
+    return request.client
+        .openUrl(method ?? request.method, newUrl)
+        .then((newRequest) {
       request.headers.forEach((name, value) {
         newRequest.headers.add(name, value);
       });

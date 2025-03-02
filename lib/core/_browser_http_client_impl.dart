@@ -41,12 +41,14 @@ class BrowserHttpClientImpl extends BrowserHttpClient {
   @override
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  Future<bool> Function(String host, int port, String scheme, String realm)? authenticateProxy;
+  Future<bool> Function(String host, int port, String scheme, String realm)?
+      authenticateProxy;
 
   @override
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  bool Function(X509Certificate cert, String host, int port)? badCertificateCallback;
+  bool Function(X509Certificate cert, String host, int port)?
+      badCertificateCallback;
 
   @override
 
@@ -59,7 +61,10 @@ class BrowserHttpClientImpl extends BrowserHttpClient {
   BrowserHttpClientImpl() : super.constructor();
 
   @override
-  set connectionFactory(Future<ConnectionTask<Socket>> Function(Uri url, String? proxyHost, int? proxyPort)? f) {
+  set connectionFactory(
+      Future<ConnectionTask<Socket>> Function(
+              Uri url, String? proxyHost, int? proxyPort)?
+          f) {
     // TODO: implement connectionFactory
   }
 
@@ -69,12 +74,14 @@ class BrowserHttpClientImpl extends BrowserHttpClient {
   }
 
   @override
-  void addCredentials(Uri url, String realm, HttpClientCredentials credentials) {
+  void addCredentials(
+      Uri url, String realm, HttpClientCredentials credentials) {
     throw UnimplementedError();
   }
 
   @override
-  void addProxyCredentials(String host, int port, String realm, HttpClientCredentials credentials) {}
+  void addProxyCredentials(
+      String host, int port, String realm, HttpClientCredentials credentials) {}
 
   @override
   void close({bool force = false}) {
@@ -112,7 +119,8 @@ class BrowserHttpClientImpl extends BrowserHttpClient {
   }
 
   @override
-  Future<HttpClientRequest> open(String method, String host, int? port, String path) {
+  Future<HttpClientRequest> open(
+      String method, String host, int? port, String path) {
     String? query;
     final i = path.indexOf('?');
     if (i >= 0) {

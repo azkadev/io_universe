@@ -28,7 +28,8 @@ import '_http_headers_impl.dart';
 import '_io_sink_base.dart';
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-class BrowserHttpClientRequestImpl extends IOSinkBase implements BrowserHttpClientRequest {
+class BrowserHttpClientRequestImpl extends IOSinkBase
+    implements BrowserHttpClientRequest {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final BrowserHttpClient client;
 
@@ -43,7 +44,8 @@ class BrowserHttpClientRequestImpl extends IOSinkBase implements BrowserHttpClie
   @override
   final HttpHeaders headers = HttpHeadersImpl('1.1');
 
-  final Completer<HttpClientResponse> _completer = Completer<HttpClientResponse>();
+  final Completer<HttpClientResponse> _completer =
+      Completer<HttpClientResponse>();
 
   Future? _addStreamFuture;
 
@@ -74,7 +76,8 @@ class BrowserHttpClientRequestImpl extends IOSinkBase implements BrowserHttpClie
   @internal
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  BrowserHttpClientRequestImpl(this.client, this.method, this.uri) : _supportsBody = _httpMethodSupportsBody(method) {
+  BrowserHttpClientRequestImpl(this.client, this.method, this.uri)
+      : _supportsBody = _httpMethodSupportsBody(method) {
     // Add "User-Agent" header
     final userAgent = client.userAgent;
     if (userAgent != null) {
@@ -94,7 +97,13 @@ class BrowserHttpClientRequestImpl extends IOSinkBase implements BrowserHttpClie
   @override
   set browserResponseType(String? value) {
     if (value != null) {
-      const validValues = <String>{'arraybuffer', 'blob', 'document', 'json', 'text'};
+      const validValues = <String>{
+        'arraybuffer',
+        'blob',
+        'document',
+        'json',
+        'text'
+      };
       if (!validValues.contains(value)) {
         throw ArgumentError.value(value);
       }
@@ -176,7 +185,9 @@ class BrowserHttpClientRequestImpl extends IOSinkBase implements BrowserHttpClie
       try {
         final contentType = ContentType.parse(accept);
         final textMimes = BrowserHttpClient.defaultTextMimes;
-        if ((contentType.primaryType == 'text' && textMimes.contains('text/*')) || textMimes.contains(contentType.mimeType)) {
+        if ((contentType.primaryType == 'text' &&
+                textMimes.contains('text/*')) ||
+            textMimes.contains(contentType.mimeType)) {
           return 'text';
         }
       } catch (error) {
@@ -275,7 +286,9 @@ class BrowserHttpClientRequestImpl extends IOSinkBase implements BrowserHttpClie
           if (!streamController.isClosed) {
             final response = xhr.response;
             if (response is String) {
-              final textChunk = seenTextLength < 0 ? response : response.substring(seenTextLength);
+              final textChunk = seenTextLength < 0
+                  ? response
+                  : response.substring(seenTextLength);
               seenTextLength = response.length;
               streamController.add(Utf8Encoder().convert(textChunk));
             }

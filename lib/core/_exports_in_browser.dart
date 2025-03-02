@@ -11,7 +11,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export '_exports_in_vm.dart' hide HttpClient, BytesBuilder, InternetAddress, Platform;
+export '_exports_in_vm.dart'
+    hide HttpClient, BytesBuilder, InternetAddress, Platform;
 export 'bytes_builder.dart';
 export 'http_client.dart';
 export 'internet_address.dart';

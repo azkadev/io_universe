@@ -202,7 +202,8 @@ abstract class HttpClient implements dart_io.HttpClient {
   /// [:username:password@hostname:port:] to include the username and
   /// password. Alternatively the API [addProxyCredentials] can be used
   /// to set credentials for proxies which require authentication.
-  static String findProxyFromEnvironment(Uri url, {Map<String, String>? environment}) {
+  static String findProxyFromEnvironment(Uri url,
+      {Map<String, String>? environment}) {
     return 'DIRECT';
   }
 }

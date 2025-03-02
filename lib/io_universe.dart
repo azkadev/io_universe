@@ -20,4 +20,7 @@
 /// ```
 library;
 
-export 'core/_exports_in_vm.dart' if (dart.library.html) 'core/_exports_in_browser.dart' if (dart.library.js) 'core/_exports_in_nodejs.dart' if (dart.library.js_interop) 'core/_exports_in_wasm.dart';
+export 'core/_exports_in_vm.dart'
+    if (dart.library.html) 'core/_exports_in_browser.dart'
+    if (dart.library.js) 'core/_exports_in_nodejs.dart'
+    if (dart.library.js_interop) 'core/_exports_in_wasm.dart';
