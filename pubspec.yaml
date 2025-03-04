@@ -1,5 +1,5 @@
 name: 'io_universe'
-description: 'Io Universe is General Library dart:io but this library is special ability to support all platform without any effort or anything error for bring your project compile 100% and running without error'
+description: 'Io Universe is General Library dart:io but this library is special ability to support all platform without any effort'
 version: '0.0.8'
 homepage: 'https://youtube.com/@azkadev'
 repository: 'https://github.com/azkadev/io_universe'
