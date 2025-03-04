@@ -1,6 +1,6 @@
 name: 'io_universe'
 description: 'Io Universe is General Library dart:io but this library is special ability to support all platform without any effort or anything error for bring your project compile 100% and running without error'
-version: '0.0.7'
+version: '0.0.8'
 homepage: 'https://youtube.com/@azkadev'
 repository: 'https://github.com/azkadev/io_universe'
 issue_tracker: 'https://t.me/DEVELOPER_GLOBAL_PUBLIC'
@@ -22,9 +22,9 @@ dev_dependencies:
   test: 'any'
   async: '^2.11.0'
   stream_channel: '^2.1.1'
-  general_lib: '^0.0.67'
+  general_lib: '^0.0.68'
 dependency_overrides:
   pointycastle: '4.0.0'
   mime: '^2.0.0'
 project:
-  type: ''
+  type: 'library'
